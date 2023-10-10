@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Listing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">CITAS AGENDADAS</h1>
+        <ul class="list-group">
+            {% for appointment in appointments %}
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col">
+                            <strong>Name:</strong> {{ appointment.name }}<br>
+                            <strong>Email:</strong> {{ appointment.email }}<br>
+                            <strong>Date:</strong> {{ appointment.date }}<br>
+                            <strong>Time:</strong> {{ appointment.time }}<br>
+                        </div>
+                        <div class="col text-right">
+                            <a href="/delete/{{ appointment.id }}" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="d-flex justify-content-center my-4">
+            <button type="button" class="btn btn-primary" onclick="redirigir()">Volver a la página principal</button>
+        </div>
+    </div>
+    <script>
+        function redirigir() {
+            window.location.href = '/';
+
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
