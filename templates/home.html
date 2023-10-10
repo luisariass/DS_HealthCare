@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}healthcare - home{% endblock %}
+
+{% block content %}
+
+<div class="container my-5">
+    <h1>HEALTHCARE CARTAGENA</h1>
+    <div class="container-center my-5">
+            <div class="col-md-5">
+                <h4>BIENVENID@ A HEALTHCARE.COM.CO</h4>
+                <p>Healthcare Cartagena es una empresa que se dedica a la venta de productos de salud y bienestar, 
+                con el fin de mejorar la calidad de vida de las personas. 
+                Nuestros productos son de alta calidad y cuentan con los registros sanitarios necesarios para su comercialización.</p>
+            </div>
+    </div>
+    <button onclick="redirigir()" class="btn btn-primary">Agendamiento de citas</button>
+    <script>
+        function redirigir() {
+            window.location.href = '/agendamiento';
+
+        }
+    </script>
+</div>
+
+{% endblock %}
