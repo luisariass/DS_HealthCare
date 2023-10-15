@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, url_for, redirect
+#from fastapi import Fastapi
 from logic.model import db, Appointment
 from datetime import datetime  
 
@@ -16,7 +17,7 @@ with app.app_context():
 # Read
 # Update
 # Delete
-@app.route('/test', methods=['POST']) 
+@app.route('/schedule', methods=['POST']) 
 def schedule_appointment():
     name = request.form.get('name')
     email = request.form.get('email')
@@ -30,7 +31,7 @@ def schedule_appointment():
     db.session.add(appointment) # agregar 
     db.session.commit()
     
-    return redirect(url_for("view_appointments"))
+    return redirect(url_for("agenda"))
 
 
 @app.route('/delete/<int:id>', methods=['GET']) 
@@ -40,7 +41,7 @@ def delete_appointment(id):
     if appointment:
         db.session.delete(appointment) # eliminar
         db.session.commit()
-        return render_template('delete_succes.html', appointment=appointment)
+        return redirect(url_for("view_appointments"))
 
 @app.route('/')
 def home():
