@@ -10,14 +10,26 @@
     <div class="container mt-5">
         <h1 class="text-center mb-4">Agendar Cita Médica</h1>
         <form action="/test" method="post" onsubmit="return confirmacionAgendamiento()">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required><br><br>
-            <label for="time">Time:</label>
-            <input type="time" id="time" name="time" required><br><br>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" class="form-control" id="time" name="time" required>
+            </div>
+        
             <div class="form-group">
                 <label for="doctor">Doctor:</label>
                 <select class="form-control" id="doctor" name="doctor" required>
@@ -38,8 +50,10 @@
                     <option value="5">Specialty 5</option>
                 </select>
             </div>
-            <div class="d-flex justify-content-center my-4y">
-                <button type="submit" class="btn btn-primary">Agendar Cita</button>
+            <div class="d-flex justify-content-center my-4">
+                <button type="submit" class="btn btn-primary mx-2">Agendar Cita</button>
+                <button type="button" class="btn btn-primary mx-2" onclick="redireccionar()">Volver a la página principal</button>
+                <button type="button" class="btn btn-primary mx-2" onclick="vercita()">Ver citas agendadas</button>
             </div>
         </form>
     </div>
@@ -47,10 +61,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     
-    <div class="d-flex justify-content-center my-4">
-        <button type="button" class="btn btn-primary" onclick="redireccionar()">Volver a la página principal</button>
-    </div>
 
     <script>
         function redireccionar() {
@@ -60,6 +72,9 @@
         function confirmacionAgendamiento() {
             alert("Agendamiento correcto");
             return true; // Este retorno de valor es importante para que el formulario se envíe
+        }
+        function vercita() {
+            window.location.href = '/lista_citas';
         }
     </script>
 </body>

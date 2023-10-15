@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for, redirect
 from logic.model import db, Appointment
 from datetime import datetime  
 
@@ -11,8 +11,12 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
-
-@app.route('/test', methods=['POST'])
+# CRUD operations
+# Create
+# Read
+# Update
+# Delete
+@app.route('/test', methods=['POST']) 
 def schedule_appointment():
     name = request.form.get('name')
     email = request.form.get('email')
@@ -23,22 +27,20 @@ def schedule_appointment():
     time1 = datetime.strptime(time_str, '%H:%M').time()
     
     appointment = Appointment(name=name, email=email, date=date1, time=time1)
-    db.session.add(appointment)
+    db.session.add(appointment) # agregar 
     db.session.commit()
     
-    return view_appointments()
+    return redirect(url_for("view_appointments"))
 
 
-@app.route('/delete/<int:id>', methods=['GET'])
+@app.route('/delete/<int:id>', methods=['GET']) 
 def delete_appointment(id):
     appointment = Appointment.query.get(id)
     
     if appointment:
-        db.session.delete(appointment)
+        db.session.delete(appointment) # eliminar
         db.session.commit()
-        return f"Appointment {id} deleted successfully!"
-    else:
-        return f"Appointment {id} not found."
+        return render_template('delete_succes.html', appointment=appointment)
 
 @app.route('/')
 def home():
