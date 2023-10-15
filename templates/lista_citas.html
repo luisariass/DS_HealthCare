@@ -20,7 +20,7 @@
                             <strong>Time:</strong> {{ appointment.time }}<br>
                         </div>
                         <div class="col text-right">
-                            <a href="/delete/{{ appointment.id }}" class="btn btn-danger">Delete</a>
+                            <a href="/delete/{{ appointment.id }}" class="btn btn-danger" onclick="return eliminarAgendamiento()">Eliminar</a>
                         </div>
                     </div>
                 </li>
@@ -40,6 +40,10 @@
         }
         function redirigir2() {
             window.location.href = '/agendamiento';
+        }
+        function eliminarAgendamiento() {
+            alert("Cita eliminada con éxito");
+            return true; // Este retorno de valor es importante para que el formulario se envíe
         }
     </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
