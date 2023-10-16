@@ -20,7 +20,7 @@
                             <strong>Time:</strong> {{ appointment.time }}<br>
                         </div>
                         <div class="col text-right">
-                            <a href="/delete/{{ appointment.id }}" class="btn btn-danger" onclick="return eliminarAgendamiento()">Eliminar</a>
+                            <a href="/delete/{{ appointment.id }}" method="delete" class="btn btn-danger" onclick="return eliminarAgendamiento()">Eliminar</a>
                         </div>
                     </div>
                 </li>
@@ -35,7 +35,7 @@
     </div>
     <script>
         function redirigir() {
-            window.location.href = '/';
+            window.location.href = '/usuario';
 
         }
         function redirigir2() {
