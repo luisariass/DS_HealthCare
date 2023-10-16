@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>PTAGENCY</title>
+    <style>
+
+        body {
+            background-color: #280062;
+            margin: 0;
+            padding: 0;
+        }
+
+     
+        .buttons {
+            display: flex;
+            justify-content: center; /* Centra los botones horizontalmente */
+            align-items: center; /* Centra los botones verticalmente */
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: orange; /* Color de fondo naranja */
+            color: white; /* Texto en negro */
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+        }
+
+        .login-button {
+            background-color: black; /* Color de fondo negro */
+            color: white; /* Texto en naranja */
+        }
+
+        .logout-button {
+            background-color: black; /* Color de fondo negro */
+            color: white; /* Texto en naranja */
+        }
+
+        .dropdown {
+            position: absolute; /* Cambiado a posición absoluta */
+            top: 10px; /* Ajusta la posición en la esquina superior derecha */
+            right: 20px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            right: 0; /* Ajusta el margen derecho de la lista desplegable */
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-button {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            text-decoration: none;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-button:hover {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/usuario">HEALTHCARE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
+        </div>
+    </nav>
+    <div class="container my-5">
+        <h1 style="color: white;">BIENVENID@ {{ user_name }} A HEALTHCARE CARTAGENA</h1>
+        <div class="container-center my-5">
+                <div class="col-md-7">
+                    <h4 style="color: white;">A continuacion eliga uno de nuestros servicios</h4>
+                </div>
+        </div>
+        <a style="color: purple;" href="{{ url_for('agenda') }}" class="btn btn-light">Agendamiento de citas</a>
+        <div class="user-info">
+            <div class="dropdown">
+                <button class="dropdown-button">{{ user_name }}</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('login') }}" class="dropdown-button logout-button">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+</body>
+</html>
