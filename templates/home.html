@@ -2,18 +2,63 @@
 {% block title %}healthcare - home{% endblock %}
 
 {% block content %}
+<style>
 
-<div class="container my-5">
-    <h1>HEALTHCARE CARTAGENA</h1>
-    <div class="container-center my-5">
-            <div class="col-md-5">
-                <h4>BIENVENID@ A HEALTHCARE.COM.CO</h4>
-                <p>Healthcare Cartagena es una empresa que se dedica a la venta de productos de salud y bienestar, 
-                con el fin de mejorar la calidad de vida de las personas. 
+
+    .container {
+        background-color: rgba(138, 43, 226);
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .container-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .container-center h4 {
+        text-align: center;
+    }
+
+    .container-center p {
+        text-align: justify;
+    }
+
+    .container button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        width: 20%;
+    }
+    .texto-contorneado {
+        font-size: 36px;
+        font-weight: bold;
+        color: white;
+        text-shadow:
+            -1px -1px 0 #000,  
+             1px -1px 0 #000,
+            -1px  1px 0 #000,
+             1px  1px 0 #000;
+    }
+    
+
+
+</style>
+<div class="container my-5 text-center">
+    <h1  class="texto-contorneado">HEALTHCARE CARTAGENA</h1>
+    <div class="container-center my-4">
+            <div class="container-center my-5">
+                <h3 style="color: white;">BIENVENID@ A HEALTHCARE.COM.CO</h3>
+            </div>
+            <div class="container-center my-5">
+                <p style="font-size: 20px; color:white">Healthcare Cartagena es una empresa que se dedica a la venta de productos de salud y bienestar, con el fin de mejorar la calidad de vida de las personas. 
                 Nuestros productos son de alta calidad y cuentan con los registros sanitarios necesarios para su comercialización.</p>
             </div>
     </div>
-    <button onclick="redirigir()" class="btn btn-primary">Agendamiento de citas</button>
+    <button onclick="redirigir()" class="btn btn-light my-1">Agendamiento de citas</button>
     <script>
         function redirigir() {
             window.location.href = '/login';
@@ -21,5 +66,6 @@
         }
     </script>
 </div>
+
 
 {% endblock %}

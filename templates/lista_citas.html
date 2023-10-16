@@ -14,10 +14,11 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col">
-                            <strong>Name:</strong> {{ appointment.name }}<br>
-                            <strong>Email:</strong> {{ appointment.email }}<br>
-                            <strong>Date:</strong> {{ appointment.date }}<br>
-                            <strong>Time:</strong> {{ appointment.time }}<br>
+                            <strong>Cedula:</strong> {{ appointment['cd'] }}<br>
+                            <strong>Nombre:</strong> {{ appointment['name'] }}<br>
+                            <strong>Email:</strong> {{ appointment['email'] }}<br>
+                            <strong>Fecha de la cita:</strong> {{ appointment['date'] }}<br>
+                            <strong>Hora de la cita:</strong> {{ appointment['time'] }}<br>
                         </div>
                         <div class="col text-right">
                             <a href="/delete/{{ appointment.id }}" method="delete" class="btn btn-danger" onclick="return eliminarAgendamiento()">Eliminar</a>

@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>PTAGENCY</title>
+    <title>Healthcare</title>
     <style>
+        .container {
+            border-radius: 10px;
+            padding: 20px;
+        }
+    
+        .container-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    
+        .container-center h4 {
+            text-align: center;
+        }
+    
+        .container-center p {
+            text-align: justify;
+        }
+    
+        .container button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            width: 20%;
+        }
 
         body {
-            background-color: #280062;
+            background-color: rgba(138, 43, 226);
             margin: 0;
             padding: 0;
         }
@@ -30,21 +57,12 @@
             margin: 0 10px;
         }
 
-        .login-button {
-            background-color: black; /* Color de fondo negro */
-            color: white; /* Texto en naranja */
-        }
-
-        .logout-button {
-            background-color: black; /* Color de fondo negro */
-            color: white; /* Texto en naranja */
-        }
 
         .dropdown {
             position: absolute; /* Cambiado a posición absoluta */
-            top: 10px; /* Ajusta la posición en la esquina superior derecha */
-            right: 20px;
-        }
+            top: 6px; /* Ajusta la posición en la esquina superior derecha */
+            right: 10px;
+        } /* Ajuste de boton login */
 
         .dropdown-content {
             display: none;
@@ -71,32 +89,35 @@
             display: block;
             width: 100%;
             text-align: left;
-        }
+        } 
 
         .dropdown-button:hover {
             background-color: black;
             color: white;
         }
+
+        .texto-contorneado {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            text-shadow:
+                -1px -1px 0 #000,  
+                 1px -1px 0 #000,
+                -1px  1px 0 #000,
+                 1px  1px 0 #000;
+        }
+        
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark" >
         <div class="container-fluid">
             <a class="navbar-brand" href="/usuario">HEALTHCARE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup"></div>
+            </div>
         </div>
-    </nav>
-    <div class="container my-5">
-        <h1 style="color: white;">BIENVENID@ {{ user_name }} A HEALTHCARE CARTAGENA</h1>
-        <div class="container-center my-5">
-                <div class="col-md-7">
-                    <h4 style="color: white;">A continuacion eliga uno de nuestros servicios</h4>
-                </div>
-        </div>
-        <a style="color: purple;" href="{{ url_for('agenda') }}" class="btn btn-light">Agendamiento de citas</a>
         <div class="user-info">
             <div class="dropdown">
                 <button class="dropdown-button">{{ user_name }}</button>
@@ -105,7 +126,17 @@
                 </div>
             </div>
         </div>
+    </nav>
+    <div class="container my-5 text-center">
+        <h1   class="texto-contorneado">BIENVENID@ {{ user_name }} A HEALTHCARE CARTAGENA</h1>
+        <div class="container-center my-5">
+                <div class="col-md-7">
+                    <h4 style="color: white;">A continuacion eliga uno de nuestros servicios</h4>
+                </div>
+        </div>
+        <a style="color: purple;" href="{{ url_for('agenda') }}" class="btn btn-light my-1">Agendamiento de citas</a>
     </div>
     {% block content %}{% endblock %}
+    
 </body>
 </html>

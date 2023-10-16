@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="content">
-        <h2>Iniciar Sesión</h2>
+        <h2>INICIAR SESION</h2>
         <form action="" method="post">
             <input type="text" name="username" placeholder="Usuario" required>
             <input type="password" name="password" placeholder="Contraseña" required>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <button type="submit"  class="btn btn-light my-3 mx-2">Iniciar Sesión</button>
+            <a class ="btn btn-light mx-3" href="/registro">Registrarse</a>
         </form>
         {% if error %}
         <p>{{ error }}</p>
@@ -15,7 +16,6 @@
         .content {
             text-align: center;
             margin-top: 100px;
-            background-image: url('fondo.jpg');
             background-size: cover;
             font-family: Arial, sans-serif;
             color: #000;
@@ -24,12 +24,12 @@
         h2 {
             color: #000;
         }
-
+        
         form {
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: rgba(255, 165, 0, 0.7);
+            padding: 25px;
+            background-color: rgba(138, 43, 226);
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
