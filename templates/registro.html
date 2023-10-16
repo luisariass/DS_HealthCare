@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content">
+        <h2>Registrarse</h2>
+        <form action="" method="post">
+            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="password" name="confirm-password" placeholder="Confirmar Contraseña" required>
+            <button type="submit" class="btn btn-primary">Registrarse</button>
+        </form>
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        {% if success %}
+        <p style="color: green;">{{ success }}</p>
+        <a href="{{ url_for('login') }} " class="btn btn-primary">Iniciar sesión</a>
+        {% endif %}
+    </div>
+    <style>
+        .content {
+            text-align: center;
+            margin-top: 100px;
+            background-image: url('fondo.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #000;
+        }
+
+        h2 {
+            color: #000;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 165, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: orange;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+        }
+    </style>
+{% endblock %}
