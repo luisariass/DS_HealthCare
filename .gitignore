@@ -1,4 +1,4 @@
 instance
 .env
-logic/_pycache_
-instance/_pycache_
+logic/__pycache__
+instance/__pycache__
