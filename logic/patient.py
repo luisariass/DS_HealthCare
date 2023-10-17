@@ -132,10 +132,3 @@ class Patient(object):
     def __str__(self):
         return dict(idn=self.idn, name=self.name, surname=self.surname,phone = self.phone, moitv = self.motiv,date_hour=self.date_hour,medic=self.medic).__str__()
 
-if __name__ == '__main__':
-
-    edwin = Patient(idn=23456, name="Edwin", surname="Puertas",phone=1234567,motiv="Dolor de cabeza",date_hour="12/12/12",medic="Dr. Juan")
-    print(edwin)
-    juan = Patient()
-    print(juan)
-
