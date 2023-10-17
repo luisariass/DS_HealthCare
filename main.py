@@ -31,11 +31,7 @@ def cargar_datos():
     with open(admin_file_path, 'r') as admin_file:
         admin = json.load(admin_file)
     return users, admin
-# CRUD operations
-# Create
-# Read
-# Update
-# Delete
+
 @app.route('/schedule', methods=['POST']) 
 def schedule_appointment():
     name = request.form.get('name')
@@ -46,7 +42,7 @@ def schedule_appointment():
     date1 = datetime.strptime(date_str, '%Y-%m-%d').date()
     time1 = datetime.strptime(time_str, '%H:%M').time()
     
-    appointment = Appointment(name=name, email=email, date=date1, time=time1)
+    appointment = Appointment(name=name,email=email, date=date1, time=time1)
     db.session.add(appointment) # agregar 
     db.session.commit()
     
